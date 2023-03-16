@@ -6,6 +6,11 @@ TagManager:
   tags:
   - ScoreArea
   - Ball
+  - Ball2
+  - WaveManager
+  - ObstaclesSpawns
+  - EnemySpawns
+  - BallSpawns
   layers:
   - Default
   - TransparentFX
