@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    private GameObject waveManager;
+    private WaveManager waves;
+
+    private void Awake()
+    {
+        waveManager = GameObject.FindGameObjectWithTag("WaveManager");
+        waves = waveManager.GetComponent<WaveManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +25,10 @@ public class Goal : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Gol!");
+        if (collision.gameObject.CompareTag("Ball2"))
+        {
+            waves.NextRound();
+        }
+        
     }
 }

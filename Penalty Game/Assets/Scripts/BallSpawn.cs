@@ -18,10 +18,12 @@ public class BallSpawn : MonoBehaviour
     [SerializeField]
     private Vector2 centerBall2;
 
+    private GameObject ball1Spawned, ball2Spawned;
+
     // Start is called before the first frame update
     void Start()
     {
-        SpawnBalls();
+        
     }
 
     // Update is called once per frame
@@ -33,10 +35,10 @@ public class BallSpawn : MonoBehaviour
     public void SpawnBalls()
     {
         Vector2 pos = centerBall1 + new Vector2(Random.Range(-sizeBall1.x / 2, sizeBall1.x/2), Random.Range(-sizeBall1.y / 2, sizeBall1.y / 2));
-        Instantiate(Ball1Prefab, pos, Quaternion.identity);
+        ball1Spawned = Instantiate(Ball1Prefab, pos, Quaternion.identity);
 
         Vector2 pos2 = centerBall2 + new Vector2(Random.Range(-sizeBall2.x / 2, sizeBall2.x / 2), Random.Range(-sizeBall2.y / 2, sizeBall2.y / 2));
-        Instantiate(Ball2Prefab, pos2, Quaternion.identity);
+        ball2Spawned = Instantiate(Ball2Prefab, pos2, Quaternion.identity);
     }
     private void OnDrawGizmosSelected()
     {
@@ -45,5 +47,10 @@ public class BallSpawn : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawCube(centerBall2, sizeBall2);
 
+    }
+    public void DespawnBalls()
+    {
+        Destroy(ball1Spawned);
+        Destroy(ball2Spawned);
     }
 }
