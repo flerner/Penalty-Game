@@ -9,7 +9,12 @@ public class Ball : MonoBehaviour
     Vector2 startPosition, endPosition;
     Vector2 ballVelocity;
     float drag = 0.4f;
+    private Rigidbody2D ball;
 
+    private void Awake()
+    {
+        ball = GetComponent<Rigidbody2D>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +41,21 @@ public class Ball : MonoBehaviour
         
             
     }
+    //private void GraduallyStopTheBall()
+    //{
+
+    //    this.transform.GetComponent<Rigidbody2D>().velocity -= this.transform.GetComponent<Rigidbody2D>().velocity * drag * Time.deltaTime;
+    //    if (Math.Abs(this.transform.GetComponent<Rigidbody2D>().velocity.x) < 0.1f || Math.Abs(this.transform.GetComponent<Rigidbody2D>().velocity.y) < 0.1f)
+    //    {
+    //        this.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    //    }
+    //}
     private void GraduallyStopTheBall()
     {
-
-        this.transform.GetComponent<Rigidbody2D>().velocity -= this.transform.GetComponent<Rigidbody2D>().velocity * drag * Time.deltaTime;
-        if (Math.Abs(this.transform.GetComponent<Rigidbody2D>().velocity.x) < 0.2f || Math.Abs(this.transform.GetComponent<Rigidbody2D>().velocity.y) < 0.2f)
+        ball.velocity = Vector2.Lerp(ball.velocity, Vector2.zero, drag * Time.deltaTime);
+        if (ball.velocity.sqrMagnitude < 0.01f)
         {
-            this.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ball.velocity = Vector2.zero;
         }
     }
     public Vector2 GetPosition()
