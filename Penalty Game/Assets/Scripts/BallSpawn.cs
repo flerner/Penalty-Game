@@ -18,10 +18,13 @@ public class BallSpawn : MonoBehaviour
     [SerializeField]
     private Vector2 centerBall2;
 
+    public Color color = Color.white;
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnBalls();
+        color.a = 0;
     }
 
     // Update is called once per frame
@@ -40,9 +43,9 @@ public class BallSpawn : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = color;
         Gizmos.DrawCube(centerBall1, sizeBall1);
-        Gizmos.color = Color.red;
+        Gizmos.color = color;
         Gizmos.DrawCube(centerBall2, sizeBall2);
 
     }
