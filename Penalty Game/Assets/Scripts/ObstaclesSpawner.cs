@@ -35,8 +35,9 @@ public class ObstaclesSpawner : MonoBehaviour
         GameObject lastObstacle = null;
 
         //this bucle is for avoiding that two obstacles instantiate at the same position
+        //FIXME obstacles keep spawining when all its spawn points are taken.
         for(int i = 0; i < cantObstacles; i++) 
-        {         
+        {                  
             obstacleSpawned = Instantiate(obstacleReference, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
             while(lastObstacle!= null && obstacleSpawned.transform.position == lastObstacle.transform.position) 
             {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    private int waveCount = 0;
+    private int waveCount = 20;
     private BallSpawn ballSpawn;
     private ObstaclesSpawner obstaclesSpawner;
     private EnemySpawner enemySpawner;
