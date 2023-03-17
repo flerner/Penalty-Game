@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
     }
     void Start()
     {
-        
+        NextRound();
     }
 
     // Update is called once per frame
@@ -36,10 +36,14 @@ public class WaveManager : MonoBehaviour
     private void Despawn()
     {
         ballSpawn.DespawnBalls();
+        obstaclesSpawner.DespawnObstacles();
+        enemySpawner.DespawnEnemies();
         
     }
     private void Spawn()
     {
         ballSpawn.SpawnBalls();
+        obstaclesSpawner.SpawnObstacles(waveCount);
+        enemySpawner.SpawnEnemies(waveCount);
     }
 }

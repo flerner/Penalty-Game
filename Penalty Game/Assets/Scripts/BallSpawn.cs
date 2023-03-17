@@ -20,18 +20,6 @@ public class BallSpawn : MonoBehaviour
 
     private GameObject ball1Spawned, ball2Spawned;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnBalls()
     {
         Vector2 pos = centerBall1 + new Vector2(Random.Range(-sizeBall1.x / 2, sizeBall1.x/2), Random.Range(-sizeBall1.y / 2, sizeBall1.y / 2));

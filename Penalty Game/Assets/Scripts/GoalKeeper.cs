@@ -18,7 +18,7 @@ public class GoalKeeper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Ball").transform;
+       // target = GameObject.FindGameObjectWithTag("Ball").transform;
     }
 
     // Update is called once per frame
@@ -30,6 +30,10 @@ public class GoalKeeper : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
             moveDirection= direction;
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Ball").transform;
         }
     }
     private void FixedUpdate()
