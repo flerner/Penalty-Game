@@ -1,9 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball2 : MonoBehaviour
 {
+    private Rigidbody2D ball;
+    float drag = 0.4f;
+    private void Awake()
+    {
+        ball = GetComponent<Rigidbody2D>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +21,18 @@ public class Ball2 : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        GraduallyStopTheBall();
+    }
+    private void GraduallyStopTheBall()
+    {
+        ball.velocity = Vector2.Lerp(ball.velocity, Vector2.zero, drag * Time.deltaTime);
+        if (ball.velocity.sqrMagnitude < 0.01f)
+        {
+            ball.velocity = Vector2.zero;
+        }
     }
 }

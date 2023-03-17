@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 3377889909533158173, guid: e2ce8ab666738ae4499193f7e6ef08bd,
         type: 3}
       propertyPath: m_TagString
-      value: Ball
+      value: Ball2
       objectReference: {fileID: 0}
     - target: {fileID: 3377889909533158175, guid: e2ce8ab666738ae4499193f7e6ef08bd,
         type: 3}

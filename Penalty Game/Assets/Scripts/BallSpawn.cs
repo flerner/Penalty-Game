@@ -18,35 +18,27 @@ public class BallSpawn : MonoBehaviour
     [SerializeField]
     private Vector2 centerBall2;
 
-    public Color color = Color.white;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SpawnBalls();
-        color.a = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private GameObject ball1Spawned, ball2Spawned;
 
     public void SpawnBalls()
     {
         Vector2 pos = centerBall1 + new Vector2(Random.Range(-sizeBall1.x / 2, sizeBall1.x/2), Random.Range(-sizeBall1.y / 2, sizeBall1.y / 2));
-        Instantiate(Ball1Prefab, pos, Quaternion.identity);
+        ball1Spawned = Instantiate(Ball1Prefab, pos, Quaternion.identity);
 
         Vector2 pos2 = centerBall2 + new Vector2(Random.Range(-sizeBall2.x / 2, sizeBall2.x / 2), Random.Range(-sizeBall2.y / 2, sizeBall2.y / 2));
-        Instantiate(Ball2Prefab, pos2, Quaternion.identity);
+        ball2Spawned = Instantiate(Ball2Prefab, pos2, Quaternion.identity);
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = color;
+        Gizmos.color = Color.blue;
         Gizmos.DrawCube(centerBall1, sizeBall1);
-        Gizmos.color = color;
+        Gizmos.color = Color.red;
         Gizmos.DrawCube(centerBall2, sizeBall2);
 
+    }
+    public void DespawnBalls()
+    {
+        Destroy(ball1Spawned);
+        Destroy(ball2Spawned);
     }
 }
