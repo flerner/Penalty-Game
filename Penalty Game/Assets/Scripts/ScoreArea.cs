@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ScoreArea : MonoBehaviour
 {
-   
+
+
+    [SerializeField] private float gol;
+    [SerializeField] private Score score;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            score.addScore(gol);
             Debug.Log("GOL!");
         }
     }
