@@ -7,6 +7,6 @@ public class PressPlay : MonoBehaviour
 {
     public void LoadScene(string mainMenu)
     {
-        SceneManager.LoadScene(mainMenu);
+        SceneManagment.Instance.LoadScene(mainMenu);
     }
 }
