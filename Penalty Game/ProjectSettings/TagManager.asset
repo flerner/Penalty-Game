@@ -12,6 +12,8 @@ TagManager:
   - EnemySpawns
   - BallSpawns
   - Trajectory
+  - GameManager
+  - Goal
   layers:
   - Default
   - TransparentFX

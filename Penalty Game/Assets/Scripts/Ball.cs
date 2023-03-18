@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
 {
     Vector2 startPosition, endPosition;
     Vector2 ballVelocity;
-    float drag = 0.4f;
+    float drag = 0.8f;
     private Rigidbody2D ball;
     private bool isDragging;
     Vector2 direction;
@@ -19,16 +19,14 @@ public class Ball : MonoBehaviour
     float pushForce = 2f;
     public Trajectory trajectory;
     [HideInInspector] public Vector3 pos { get { return transform.position; } }
-
+    private GameManager gameManager;
 
     private void Awake()
     {
         trajectory = GameObject.FindGameObjectWithTag("Trajectory").GetComponent<Trajectory>();
         ball = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
-
-
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -54,7 +52,6 @@ public class Ball : MonoBehaviour
        
     }
 
-
     void OnDrag()
     {
         endPosition = GetPosition();
@@ -74,13 +71,12 @@ public class Ball : MonoBehaviour
     {
         ball.AddForce(force, ForceMode2D.Impulse);
         trajectory.Hide();
+        gameManager.UpdateShots();
     }
 
     private void FixedUpdate()
     {
-        GraduallyStopTheBall();
-        
-            
+        GraduallyStopTheBall();    
     }
     private void GraduallyStopTheBall()
     {
@@ -93,5 +89,9 @@ public class Ball : MonoBehaviour
     public Vector2 GetPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+    public Vector2 GetBallVelocity()
+    {
+        return ball.velocity;
     }
 }
