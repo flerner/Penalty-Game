@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        guiManager.UpdateLives(health);
+        guiManager.UpdateShots(shots);
+        guiManager.UpdateScore(score);
     }
 
     // Update is called once per frame
