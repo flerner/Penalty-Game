@@ -35,7 +35,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball2"))
         {
-            score.addScore(gol);
+            //score.addScore(gol);
             //waves.NextRound();
             wasGol = true;
             gameManager.WinWave();
