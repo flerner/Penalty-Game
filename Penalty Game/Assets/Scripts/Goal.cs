@@ -7,7 +7,7 @@ public class Goal : MonoBehaviour
     private GameObject waveManager;
     private WaveManager waves;
     private GameManager gameManager;
-    public bool gol=false;
+    public bool wasGol=false;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball2"))
         {
-            gol=true;
+            wasGol = true;
             gameManager.WinWave();
         }
         
