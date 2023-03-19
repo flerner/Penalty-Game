@@ -7,6 +7,8 @@ public class Goal : MonoBehaviour
     private GameObject waveManager;
     private WaveManager waves;
 
+   
+    
     [SerializeField] private float gol;
     [SerializeField] private Score score;
 
@@ -30,6 +32,9 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball2"))
         {
+
+
+
             score.addScore(gol);
             waves.NextRound();
         }
