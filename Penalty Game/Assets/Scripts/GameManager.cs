@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private WaveManager waveManager;
     private Goal goal;
     private Ball ball = null;
+    private int score = 0;
+    private GuiManager guiManager;
 
     // Start is called before the first frame update
 
@@ -17,7 +19,9 @@ public class GameManager : MonoBehaviour
     {
         waveManager = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>();
         goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
-        
+        guiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<GuiManager>();
+
+
     }
     void Start()
     {
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
     public void UpdateShots()
     {
         shots--;
+        guiManager.UpdateShots(shots);
         Debug.Log("Shots remaining: " + shots);
     }
     public void ResetShots()
@@ -53,11 +58,14 @@ public class GameManager : MonoBehaviour
     {
         waveManager.RestartWave();
         health--;
+        guiManager.UpdateLives(health);
         Debug.Log("Lives remaining" + health);
     }
     public void WinWave()
     {
+        score++;
         waveManager.NextRound();
         goal.wasGol = false;
+        guiManager.UpdateScore(score);
     }
 }
