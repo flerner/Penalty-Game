@@ -6,6 +6,8 @@ public class Goal : MonoBehaviour
 {
     private GameObject waveManager;
     private WaveManager waves;
+    private GameManager gameManager;
+    public bool wasGol=false;
 
    
     
@@ -16,6 +18,7 @@ public class Goal : MonoBehaviour
     {
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
         waves = waveManager.GetComponent<WaveManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -32,11 +35,10 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball2"))
         {
-
-
-
             score.addScore(gol);
-            waves.NextRound();
+            //waves.NextRound();
+            wasGol = true;
+            gameManager.WinWave();
         }
 
     }

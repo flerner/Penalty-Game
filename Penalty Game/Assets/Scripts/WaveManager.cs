@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     private BallSpawn ballSpawn;
     private ObstaclesSpawner obstaclesSpawner;
     private EnemySpawner enemySpawner;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     private void Awake()
@@ -15,6 +16,8 @@ public class WaveManager : MonoBehaviour
         ballSpawn= GameObject.FindGameObjectWithTag("BallSpawns").GetComponent<BallSpawn>();
         obstaclesSpawner= GameObject.FindGameObjectWithTag("ObstaclesSpawns").GetComponent<ObstaclesSpawner>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawns").GetComponent<EnemySpawner>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        
     }
     void Start()
     {
@@ -32,6 +35,8 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Round " + waveCount);
         Despawn();
         Spawn();
+        gameManager.ResetShots();
+        
     }
     private void Despawn()
     {
@@ -45,5 +50,12 @@ public class WaveManager : MonoBehaviour
         ballSpawn.SpawnBalls();
         obstaclesSpawner.SpawnObstacles(waveCount);
         enemySpawner.SpawnEnemies(waveCount);
+    }
+    public void RestartWave()
+    {
+        
+        Despawn();
+        Spawn();
+        gameManager.ResetShots();
     }
 }
