@@ -58,6 +58,6 @@ public class GameManager : MonoBehaviour
     public void WinWave()
     {
         waveManager.NextRound();
-        goal.gol = false;
+        goal.wasGol = false;
     }
 }
