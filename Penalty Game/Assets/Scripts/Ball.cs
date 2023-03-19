@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.DeviceSimulation;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -29,26 +30,30 @@ public class Ball : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            isDragging = true;
-            OnDragStart();
-           // startPosition = GetPosition();
+            if (Input.GetMouseButtonDown(0) && !PauseMenu.GameIsPaused)
+            {
+                isDragging = true;
+                OnDragStart();
+                // startPosition = GetPosition();
 
-        }
+            }
 
-        if (isDragging)
-        {
-            OnDrag();
-        }
+            if (isDragging && !PauseMenu.GameIsPaused)
+            {
+                OnDrag();
+            }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            OnDragEnd();
-            //endPosition = GetPosition();
-            //this.transform.GetComponent<Rigidbody2D>().AddForce((startPosition - endPosition) * 50, ForceMode2D.Force);            
+            if (Input.GetMouseButtonUp(0) && !PauseMenu.GameIsPaused)
+            {
+                isDragging = false;
+                OnDragEnd();
+                //endPosition = GetPosition();
+                //this.transform.GetComponent<Rigidbody2D>().AddForce((startPosition - endPosition) * 50, ForceMode2D.Force);            
+            }
         }
+        
        
     }
 
@@ -64,8 +69,10 @@ public class Ball : MonoBehaviour
     }
     void OnDragStart()
     {
-        startPosition = GetPosition();
-        trajectory.Show();
+        
+            startPosition = GetPosition();
+            trajectory.Show();
+        
     }
     void OnDragEnd()
     {
