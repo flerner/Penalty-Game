@@ -12,19 +12,19 @@ public class HighscoreTable : MonoBehaviour
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
-    public static HighscoreTable Instance;
+    //public static HighscoreTable Instance;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
 
 
 
@@ -118,7 +118,7 @@ public class HighscoreTable : MonoBehaviour
         public List<HighScoreEntry> highscoreEntryList;
     }
 
-    public void AddHighScoreEntry(int score, string name)
+    public static void AddHighScoreEntry(int score, string name)
     {
         //Create highscore
         HighScoreEntry highScoreEntry = new HighScoreEntry { score = score, name = name};

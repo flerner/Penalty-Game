@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     private void CreateNewPositionInHighscoreTable()
     {
-        HighscoreTable.Instance.AddHighScoreEntry(score, "AAA");
+        HighscoreTable.AddHighScoreEntry(score, "AAA");
         
     }
 }
