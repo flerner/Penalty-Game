@@ -27,7 +27,6 @@ public class HighscoreTable : MonoBehaviour
         //}
 
 
-
         UpdateTable();
 
 
@@ -166,10 +165,12 @@ public class HighscoreTable : MonoBehaviour
     {
         string jsonString = PlayerPrefs.GetString("highScoreTable");
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
-        for(int i=0; i < highScores.highscoreEntryList.Count; i++)
+        int cantPos = highScores.highscoreEntryList.Count;
+        for (int i=0; i < cantPos; i++)
         {
-            highScores.highscoreEntryList.RemoveAt(i);
+            highScores.highscoreEntryList.RemoveAt(0);
         }
+        
         string json = JsonUtility.ToJson(highScores);
         PlayerPrefs.SetString("highScoreTable", json);
         PlayerPrefs.Save();
