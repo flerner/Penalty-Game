@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Ball ball = null;
     private int score = 0;
     private GuiManager guiManager;
+    private HighscoreTable highscoreTable;
 
     // Start is called before the first frame update
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         waveManager = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>();
         goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
         guiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<GuiManager>();
+        highscoreTable = GameObject.FindGameObjectWithTag("HighScoreTable").GetComponent<HighscoreTable>();
 
 
     }
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
         if(health == 0)
         {
+            CreateNewPositionInHighscoreTable();
             SceneManagment.Instance.LoadScene("MainMenu");
         }
     }
@@ -69,5 +72,10 @@ public class GameManager : MonoBehaviour
         waveManager.NextRound();
         goal.wasGol = false;
         guiManager.UpdateScore(score);
+    }
+
+    private void CreateNewPositionInHighscoreTable()
+    {
+        highscoreTable.AddHighScoreEntry(score, "AAA");
     }
 }
