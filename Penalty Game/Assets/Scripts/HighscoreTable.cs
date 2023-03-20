@@ -8,22 +8,41 @@ using UnityEngine.UI;
 
 public class HighscoreTable : MonoBehaviour
 {
+    
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
-
+    public static HighscoreTable Instance;
 
     private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+
+        UpdateTable();
+
+
+    }
+
+    public void UpdateTable()
+    {
         entryContainer = transform.Find("HighScoreEntryContainer");
         entryTemplate = entryContainer.transform.Find("HighScoreEntryTemplate");
 
-       
         
+
         string jsonString = PlayerPrefs.GetString("highScoreTable");
-        HighScores highScores= JsonUtility.FromJson<HighScores>(jsonString);
-        
+        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+
         //sorting code
         for (int i = 0; i < highScores.highscoreEntryList.Count; i++)
         {
@@ -37,7 +56,7 @@ public class HighscoreTable : MonoBehaviour
                 }
             }
         }
-        
+
 
 
         highScoreEntryTransformList = new List<Transform>();
@@ -50,17 +69,12 @@ public class HighscoreTable : MonoBehaviour
             //    CreateHighscoreEntryTransform(highScores.highscoreEntryList[i], entryContainer, highScoreEntryTransformList);
             //}
             int i = 0;
-            while(i < highScores.highscoreEntryList.Count && i < 10)
+            while (i < highScores.highscoreEntryList.Count && i < 10)
             {
                 CreateHighscoreEntryTransform(highScores.highscoreEntryList[i], entryContainer, highScoreEntryTransformList);
                 i++;
             }
         }
-
-
-
-
-        
     }
     private void CreateHighscoreEntryTransform(HighScoreEntry highScoreEntry, Transform container, List<Transform> transformList)
     {
