@@ -12,20 +12,19 @@ public class HighscoreTable : MonoBehaviour
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
-    public static HighscoreTable Instance;
+    //public static HighscoreTable Instance;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
 
 
         UpdateTable();
@@ -118,7 +117,7 @@ public class HighscoreTable : MonoBehaviour
         public List<HighScoreEntry> highscoreEntryList;
     }
 
-    public void AddHighScoreEntry(int score, string name)
+    public static void AddHighScoreEntry(int score, string name)
     {
         //Create highscore
         HighScoreEntry highScoreEntry = new HighScoreEntry { score = score, name = name};
@@ -166,10 +165,12 @@ public class HighscoreTable : MonoBehaviour
     {
         string jsonString = PlayerPrefs.GetString("highScoreTable");
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
-        for(int i=0; i < highScores.highscoreEntryList.Count; i++)
+        int cantPos = highScores.highscoreEntryList.Count;
+        for (int i=0; i < cantPos; i++)
         {
-            highScores.highscoreEntryList.RemoveAt(i);
+            highScores.highscoreEntryList.RemoveAt(0);
         }
+        
         string json = JsonUtility.ToJson(highScores);
         PlayerPrefs.SetString("highScoreTable", json);
         PlayerPrefs.Save();
