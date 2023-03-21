@@ -14,7 +14,7 @@ public class InputName : MonoBehaviour
   
     public void OnSubmitButton()
     {
-        if (inputField != null)
+        if (inputField != null && inputField.text != "")
         {
             GameManager.AddInputName(inputField.text);
             Debug.Log(inputField.text);
