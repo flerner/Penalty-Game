@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ball2 : MonoBehaviour
 {
     private Rigidbody2D ball;
-    float drag = 0.4f;
+    float drag = 1f;
     private void Awake()
     {
         ball = GetComponent<Rigidbody2D>();
