@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Ball ball = null;
     private int score = 0;
     private GuiManager guiManager;
+    public static string nameInput;
     //private HighscoreTable highscoreTable;
 
     // Start is called before the first frame update
@@ -76,7 +78,11 @@ public class GameManager : MonoBehaviour
 
     private void CreateNewPositionInHighscoreTable()
     {
-        HighscoreTable.AddHighScoreEntry(score, "AAA");
+        HighscoreTable.AddHighScoreEntry(score, nameInput);
         
+    }
+    public static void AddInputName(string name)
+    {
+        nameInput = name;
     }
 }
