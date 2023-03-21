@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private GuiManager guiManager;
     public static string nameInput;
+    private Ball2 ball2 = null;
     //private HighscoreTable highscoreTable;
 
     // Start is called before the first frame update
@@ -41,7 +42,11 @@ public class GameManager : MonoBehaviour
         {
             ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Ball>();
         }
-        if(shots == 0 && ball.GetBallVelocity().magnitude == 0)
+        if(ball2 == null)
+        {
+            ball2 = GameObject.FindGameObjectWithTag("Ball2").GetComponent<Ball2>();
+        }
+        if(shots == 0 && ball.GetBallVelocity().magnitude == 0 && ball2.GetBallVelocity().magnitude == 0)
         {
             LooseWave();
         }
@@ -65,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         waveManager.RestartWave();
         health--;
-        guiManager.UpdateLives(health);
+        guiManager.UpdateAll(score, health, shots);
         Debug.Log("Lives remaining" + health);
     }
     public void WinWave()
@@ -73,7 +78,7 @@ public class GameManager : MonoBehaviour
         score++;
         waveManager.NextRound();
         goal.wasGol = false;
-        guiManager.UpdateScore(score);
+        guiManager.UpdateAll(score, health, shots);
     }
 
     private void CreateNewPositionInHighscoreTable()
@@ -84,5 +89,9 @@ public class GameManager : MonoBehaviour
     public static void AddInputName(string name)
     {
         nameInput = name;
+    }
+    public bool CanShoot()
+    {
+        return shots > 0;
     }
 }

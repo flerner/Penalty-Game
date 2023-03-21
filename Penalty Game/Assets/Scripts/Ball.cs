@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetMouseButtonDown(0) && !PauseMenu.GameIsPaused)
+            if (Input.GetMouseButtonDown(0) && !PauseMenu.GameIsPaused && gameManager.CanShoot())
             {
                 isDragging = true;
                 OnDragStart();
@@ -40,12 +40,12 @@ public class Ball : MonoBehaviour
 
             }
 
-            if (isDragging && !PauseMenu.GameIsPaused)
+            if (isDragging && !PauseMenu.GameIsPaused && gameManager.CanShoot())
             {
                 OnDrag();
             }
 
-            if (Input.GetMouseButtonUp(0) && !PauseMenu.GameIsPaused)
+            if (Input.GetMouseButtonUp(0) && !PauseMenu.GameIsPaused && gameManager.CanShoot())
             {
                 isDragging = false;
                 OnDragEnd();
