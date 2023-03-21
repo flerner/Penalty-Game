@@ -35,4 +35,8 @@ public class Ball2 : MonoBehaviour
             ball.velocity = Vector2.zero;
         }
     }
+    public Vector2 GetBallVelocity()
+    {
+        return ball.velocity;
+    }
 }

@@ -20,6 +20,13 @@ public class GuiManager : MonoBehaviour
         
     }
 
+    public void UpdateAll(int _score, int _lives, int _shots)
+    {
+        UpdateScore(_score);
+        UpdateLives(_lives);
+        UpdateShots(_shots);
+    }
+
     public void UpdateScore(int _score)
     {
         score.text = "Score: " + _score;
