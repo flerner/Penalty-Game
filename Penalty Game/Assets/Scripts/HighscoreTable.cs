@@ -40,6 +40,12 @@ public class HighscoreTable : MonoBehaviour
         
 
         string jsonString = PlayerPrefs.GetString("highScoreTable");
+        if(jsonString == null)
+        {
+            PlayerPrefs.SetString("HighscoreTable", "100");
+            PlayerPrefs.Save();
+            jsonString = PlayerPrefs.GetString("highScoreTable");
+        }
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
 
         //sorting code
