@@ -31,7 +31,12 @@ public class SceneManagment : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "Penalty")
         {
-            MusicPlay.AudioSource.GetComponent<AudioSource>().volume = 0.05f;
+            MusicPlay.AudioSource.GetComponent<AudioSource>().volume = 0.2f;
+        }
+
+        if (SceneManager.GetActiveScene().name == "HighScoreTable")
+        {
+            MusicPlay.AudioSource.GetComponent<AudioSource>().volume = 0.2f;
         }
     }
 }
