@@ -40,9 +40,10 @@ public class HighscoreTable : MonoBehaviour
         
 
         string jsonString = PlayerPrefs.GetString("highScoreTable");
+        
         if(jsonString == null)
         {
-            PlayerPrefs.SetString("HighscoreTable", "100");
+            PlayerPrefs.SetString("highscoreTable", "");
             PlayerPrefs.Save();
             jsonString = PlayerPrefs.GetString("highScoreTable");
         }
