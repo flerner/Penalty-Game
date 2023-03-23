@@ -17,6 +17,7 @@ TagManager:
   - Canvas
   - Wall
   - Pause
+  - Music
   layers:
   - Default
   - TransparentFX
