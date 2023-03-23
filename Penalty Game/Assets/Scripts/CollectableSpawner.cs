@@ -6,10 +6,10 @@ public class CollectableSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject extraShotReference;
-    // Start is called before the first frame update
-    void Start()
+    private List<GameObject> spawned;
+    private void Awake()
     {
-        
+        spawned = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -19,6 +19,17 @@ public class CollectableSpawner : MonoBehaviour
     }
     public void SpawnExtraShot(Vector3 position)
     {
-        Instantiate(extraShotReference, position, Quaternion.identity);
+        spawned.Add(Instantiate(extraShotReference, position, Quaternion.identity));
     }
+    public void DespawnAll()
+    {
+        int cant = spawned.Count;
+        for(int i= 0; i < cant; i++)
+        {
+            Destroy(spawned[0]);
+            spawned.RemoveAt(0);
+        }
+    }
+
+
 }
