@@ -29,7 +29,6 @@ public class HighscoreTable : MonoBehaviour
 
         UpdateTable();
 
-
     }
 
     public void UpdateTable()
@@ -40,8 +39,14 @@ public class HighscoreTable : MonoBehaviour
         
 
         string jsonString = PlayerPrefs.GetString("highScoreTable");
+        
+        
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
 
+        if (highScores == null)
+        {
+            return;
+        }
         //sorting code
         for (int i = 0; i < highScores.highscoreEntryList.Count; i++)
         {
@@ -124,8 +129,20 @@ public class HighscoreTable : MonoBehaviour
 
         //Load highscores
         string jsonString = PlayerPrefs.GetString("highScoreTable");
-        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
 
+        //if no highscore are stored so jsonString is null
+        
+        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+        if (highScores == null)
+        {
+            HighScores highscores2 = new HighScores();
+            highscores2.highscoreEntryList= new List<HighScoreEntry>();
+            highscores2.highscoreEntryList.Add(new HighScoreEntry { score = score, name = name });
+            string json1 = JsonUtility.ToJson(highscores2);
+            PlayerPrefs.SetString("highScoreTable", json1);
+            PlayerPrefs.Save();
+            return;
+        }
         //create a copy and sort to check if is able to save it
         string jsonString1 = PlayerPrefs.GetString("highScoreTable");
         HighScores highScores1 = JsonUtility.FromJson<HighScores>(jsonString);
