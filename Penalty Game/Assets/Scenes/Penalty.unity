@@ -914,6 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa4203a035ea8043b8670fe9c2e7b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveCount: 0
 --- !u!4 &285418975
 Transform:
   m_ObjectHideFlags: 0
@@ -3498,6 +3499,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &941974734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941974736}
+  - component: {fileID: 941974735}
+  m_Layer: 0
+  m_Name: CollectableSpawner
+  m_TagString: CollectableSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &941974735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941974734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d436831128b014796f2ee8310caea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extraShotReference: {fileID: 6791732285203304148, guid: 95e17fcbbe3515a4987498a2cddc3085,
+    type: 3}
+--- !u!4 &941974736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941974734}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.069864675, y: -1.1040285, z: -44.31859}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &949123983
 GameObject:
   m_ObjectHideFlags: 0
