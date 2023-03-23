@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField]
     private int waveCount = 0;
     private BallSpawn ballSpawn;
     private ObstaclesSpawner obstaclesSpawner;
