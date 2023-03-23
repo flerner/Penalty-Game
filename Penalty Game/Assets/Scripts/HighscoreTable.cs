@@ -136,6 +136,7 @@ public class HighscoreTable : MonoBehaviour
         if (highScores == null)
         {
             HighScores highscores2 = new HighScores();
+            highscores2.highscoreEntryList= new List<HighScoreEntry>();
             highscores2.highscoreEntryList.Add(new HighScoreEntry { score = score, name = name });
             string json1 = JsonUtility.ToJson(highscores2);
             PlayerPrefs.SetString("highScoreTable", json1);
