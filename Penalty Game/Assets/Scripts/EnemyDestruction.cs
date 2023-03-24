@@ -19,7 +19,7 @@ public class EnemyDestruction : MonoBehaviour
             {
                 Destroy(gameObject);
                 
-                collectableSpawner.SpawnExtraShot(transform.position);
+                collectableSpawner.SpawnRandom(transform.position);
             }
             
         }

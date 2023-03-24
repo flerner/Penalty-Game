@@ -102,4 +102,12 @@ public class GameManager : MonoBehaviour
         this.shots += shots;
         guiManager.UpdateShots(this.shots);
     }
+    public void AddLife(int life)
+    {
+        if (health < 5)
+        {
+            this.health += life;
+            guiManager.UpdateLives(health);
+        }
+    }
 }
