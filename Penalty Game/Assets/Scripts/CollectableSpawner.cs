@@ -30,7 +30,7 @@ public class CollectableSpawner : MonoBehaviour
     public void SpawnRandom(Vector3 position)
     {
         int i = Random.Range(0, 10);
-        if(i >=0 && i < 9)
+        if(i >=0 && i < 8)
         {
             SpawnExtraShot(position);
         }
