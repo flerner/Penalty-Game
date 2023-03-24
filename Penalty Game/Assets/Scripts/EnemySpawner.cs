@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemies(int wave)
     {
-        int cantObstacles = wave / 5;
+        int cantObstacles = wave / 4;
         GameObject lastObstacle = null;
 
         //this bucle is for avoiding that two obstacles instantiate at the same position

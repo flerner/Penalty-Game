@@ -9,11 +9,12 @@ public class GoalKeeper : MonoBehaviour
     Rigidbody2D rb;
     Transform target;
     Vector2 moveDirection;
-
+    CollectableSpawner collectableSpawner;
 
     private void Awake()
     {
         rb= GetComponent<Rigidbody2D>();
+        collectableSpawner = GameObject.FindGameObjectWithTag("CollectableSpawner").GetComponent<CollectableSpawner>();
     }
     // Start is called before the first frame update
     void Start()

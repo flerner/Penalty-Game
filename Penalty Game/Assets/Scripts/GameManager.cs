@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private GuiManager guiManager;
     public static string nameInput;
     private Ball2 ball2 = null;
+    private CollectableSpawner collectableSpawner;
     //private HighscoreTable highscoreTable;
 
     // Start is called before the first frame update
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour
         waveManager = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>();
         goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
         guiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<GuiManager>();
-       // highscoreTable = GameObject.FindGameObjectWithTag("HighScoreTable").GetComponent<HighscoreTable>();
+        collectableSpawner = GameObject.FindGameObjectWithTag("CollectableSpawner").GetComponent<CollectableSpawner>();
+        // highscoreTable = GameObject.FindGameObjectWithTag("HighScoreTable").GetComponent<HighscoreTable>();
 
 
     }
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         shots--;
         guiManager.UpdateShots(shots);
-        Debug.Log("Shots remaining: " + shots);
+        
     }
     public void ResetShots()
     {
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
         waveManager.RestartWave();
         health--;
         guiManager.UpdateAll(score, health, shots);
-        Debug.Log("Lives remaining" + health);
+        collectableSpawner.DespawnAll();
     }
     public void WinWave()
     {
@@ -79,6 +81,7 @@ public class GameManager : MonoBehaviour
         waveManager.NextRound();
         goal.wasGol = false;
         guiManager.UpdateAll(score, health, shots);
+        collectableSpawner.DespawnAll();
     }
 
     private void CreateNewPositionInHighscoreTable()
@@ -93,5 +96,18 @@ public class GameManager : MonoBehaviour
     public bool CanShoot()
     {
         return shots > 0;
+    }
+    public void AddShots(int shots)
+    {
+        this.shots += shots;
+        guiManager.UpdateShots(this.shots);
+    }
+    public void AddLife(int life)
+    {
+        if (health < 5)
+        {
+            this.health += life;
+            guiManager.UpdateLives(health);
+        }
     }
 }

@@ -18,6 +18,8 @@ TagManager:
   - Wall
   - Pause
   - Music
+  - ExtraShot
+  - CollectableSpawner
   layers:
   - Default
   - TransparentFX
