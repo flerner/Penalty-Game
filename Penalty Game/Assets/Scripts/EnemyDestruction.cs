@@ -14,9 +14,10 @@ public class EnemyDestruction : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ball") )
         {
-            Debug.Log(collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude);
-            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude > 1.5)
+            Debug.Log(collision.relativeVelocity.magnitude);
+            if (collision.relativeVelocity.magnitude > 5)
             {
+                //collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude
                 Destroy(gameObject);
                 
                 collectableSpawner.SpawnRandom(transform.position);
