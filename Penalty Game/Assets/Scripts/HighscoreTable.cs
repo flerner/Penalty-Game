@@ -28,7 +28,6 @@ public class HighscoreTable : MonoBehaviour
 
 
         UpdateTable();
-
     }
 
     public void UpdateTable()
