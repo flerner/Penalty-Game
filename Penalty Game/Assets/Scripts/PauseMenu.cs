@@ -62,7 +62,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManagment.Instance.LoadScene("MainMenu");
+        SceneManagment.Instance.LoadScene("StartGame");
         Resume();
     }
     public void Quit()
