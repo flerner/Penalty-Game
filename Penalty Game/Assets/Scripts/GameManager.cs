@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
 
+
+    private float _duration = 5f;
+    private float _timer = 0f;
+
     private void Awake()
     {
         waveManager = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>();
@@ -51,6 +55,17 @@ public class GameManager : MonoBehaviour
         if(shots == 0 && ball.GetBallVelocity().magnitude == 0 && ball2.GetBallVelocity().magnitude == 0)
         {
             LooseWave();
+        }
+        if(shots == 0)
+        {
+            _timer += Time.deltaTime;
+            Debug.Log(_timer);
+            if (_timer >= _duration)
+            {
+                _timer = 0f;
+                LooseWave();
+            }
+
         }
         if(health == 0)
         {
