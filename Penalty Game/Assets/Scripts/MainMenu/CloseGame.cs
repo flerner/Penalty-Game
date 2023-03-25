@@ -5,11 +5,11 @@ using UnityEditor;
 
 public class CloseGame : MonoBehaviour
 {
-    public void quitGame()
-    {
-       // Application.Quit();
-        EditorApplication.isPlaying = false;
+    //public void quitGame()
+    //{
+    //   // Application.Quit();
+    //    EditorApplication.isPlaying = false;
 
-        Debug.Log("Juego Cerrado!");
-    }
+    //    Debug.Log("Juego Cerrado!");
+    //}
 }
