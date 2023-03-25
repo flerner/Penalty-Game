@@ -1997,6 +1997,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2006617289}
+    - target: {fileID: 2578542574358726221, guid: c4526084d87bffc46ae793bfc3839be5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: HighScoreTable
+      objectReference: {fileID: 0}
     - target: {fileID: 2578542574358726226, guid: c4526084d87bffc46ae793bfc3839be5,
         type: 3}
       propertyPath: m_SizeDelta.x

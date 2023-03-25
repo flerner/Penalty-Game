@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartGame.unity
     guid: 8a5b0ca5e32fb2e45aab30b1bdeb3b9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: fcb43f28674d0fb4eaece7679d2eaee3
   - enabled: 1
-    path: Assets/Scenes/BestScores.unity
-    guid: 6ff02d8fc33cf444fbdab02b6287a086
+    path: Assets/Scenes/HighScoreTable.unity
+    guid: f77dd05aaab2c08448a1ad8f83c1ad69
   - enabled: 1
     path: Assets/Scenes/Penalty.unity
     guid: c0b573b6b7a88d5488955b93a6de792f
-  - enabled: 1
-    path: Assets/Scenes/HighScoreTable.unity
-    guid: f77dd05aaab2c08448a1ad8f83c1ad69
+  - enabled: 0
+    path: Assets/Scenes/BestScores.unity
+    guid: 6ff02d8fc33cf444fbdab02b6287a086
   m_configObjects: {}

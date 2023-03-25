@@ -598,7 +598,7 @@ Transform:
   - {fileID: 1559451631}
   - {fileID: 1237450399}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460525723
 GameObject:
@@ -1266,7 +1266,7 @@ PrefabInstance:
     - target: {fileID: 4404826922077649394, guid: b7494b54154e37b4682f32fc614f0f0f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4404826922077649394, guid: b7494b54154e37b4682f32fc614f0f0f,
         type: 3}
@@ -1660,7 +1660,7 @@ Transform:
   - {fileID: 460525724}
   - {fileID: 2024734645}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413906057
 GameObject:
@@ -1931,7 +1931,7 @@ Transform:
   m_Children:
   - {fileID: 10258962}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559451630
 GameObject:
@@ -2457,6 +2457,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803846841}
   m_CullTransparentMesh: 0
+--- !u!1001 &1815235118
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4206444414388643811, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio Source
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.238348
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9237308
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.781976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206444414388643820, guid: 1461ff4defa4c6443b16f6e7f93e1713,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1461ff4defa4c6443b16f6e7f93e1713, type: 3}
 --- !u!1 &1841504800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3058,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1803556593}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HighScoreTable
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1803556593}
         m_MethodName: LoadScene
         m_Mode: 5
