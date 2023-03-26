@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Ball2 : MonoBehaviour
 {
+    [SerializeField] AudioSource hitSound2;
+
     private Rigidbody2D ball;
     float drag = 1f;
     private void Awake()
@@ -38,5 +40,13 @@ public class Ball2 : MonoBehaviour
     public Vector2 GetBallVelocity()
     {
         return ball.velocity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            hitSound2.Play();
+        }
     }
 }
