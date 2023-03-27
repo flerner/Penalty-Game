@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b1761940ecbd44fae5dad4a718543f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound2: {fileID: 3528814855141000909}
 --- !u!1001 &1686920797674202406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,6 +23,11 @@ PrefabInstance:
     - target: {fileID: 940588138, guid: e2ce8ab666738ae4499193f7e6ef08bd, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377889909533158161, guid: e2ce8ab666738ae4499193f7e6ef08bd,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 3377889909533158173, guid: e2ce8ab666738ae4499193f7e6ef08bd,
         type: 3}
@@ -100,6 +106,12 @@ PrefabInstance:
 --- !u!1 &4145996109611748923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3377889909533158173, guid: e2ce8ab666738ae4499193f7e6ef08bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1686920797674202406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3528814855141000909 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2851337034752844779, guid: e2ce8ab666738ae4499193f7e6ef08bd,
     type: 3}
   m_PrefabInstance: {fileID: 1686920797674202406}
   m_PrefabAsset: {fileID: 0}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField] private AudioSource goalSound;
+
     private GameObject waveManager;
     private WaveManager waves;
     private GameManager gameManager;
@@ -37,6 +39,7 @@ public class Goal : MonoBehaviour
         {
             //score.addScore(gol);
             //waves.NextRound();
+            goalSound.Play();
             wasGol = true;
             gameManager.WinWave();
         }

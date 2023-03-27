@@ -9,6 +9,8 @@ using UnityEngine.UIElements;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] AudioSource hitSound;
+
     Vector2 startPosition, endPosition;
     Vector2 ballVelocity;
     float drag = 0.8f;
@@ -54,7 +56,6 @@ public class Ball : MonoBehaviour
             }
         }
         
-       
     }
 
     void OnDrag()
@@ -101,4 +102,18 @@ public class Ball : MonoBehaviour
     {
         return ball.velocity;
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ball2")
+        {
+            hitSound.Play();
+        }
+
+        if(collision.gameObject.tag == "Wall")
+        {
+            hitSound.Play();
+        }
+    }
+
 }
